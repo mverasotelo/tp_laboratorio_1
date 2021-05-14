@@ -106,6 +106,7 @@ int main(void) {
 			default:
 			    //opcion invalida
 				printf("Debe ingresar una opcion valida\n\n");
+		        fflush(stdin);
 				break;
 		}
 	}while(exit!='s');

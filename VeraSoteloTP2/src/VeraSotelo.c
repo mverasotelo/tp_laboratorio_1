@@ -30,8 +30,9 @@ int getOption(int min, int max){
 	int opcion;
     printf("Ingrese opcion: ");
     scanf("%d", &opcion);
-    while(opcion<min&&opcion>max){
+    while(opcion<min || opcion>max){
         printf("Opcion invalida. Ingrese nuevamente: ");
+        fflush(stdin);
         scanf("%d", &opcion);
     }
     printf("\n");
@@ -40,13 +41,17 @@ int getOption(int min, int max){
 
 int getString(char *string, int maxLen){
     int retorno=-1;
-    if(string!=NULL){
+    char aux[100];
+    if(string!=NULL && maxLen>0 && maxLen<99){
         fflush(stdin);
-        gets(string);
-        while(strlen(string)>maxLen){
-            printf("El maximo numero de caracteres permitidos es %d. Reingrese dato:",maxLen);
-            gets(string);
+        fgets(aux,100,stdin);
+        while(strlen(aux)>maxLen){
+            printf("El maximo numero de caracteres permitidos es %d. Reingrese dato: ",maxLen);
+            fflush(stdin);
+            fgets(aux,100,stdin);
         }
+        aux[strlen(aux)-1]='\0';
+        strcpy(string, aux);
         retorno=0;
     }
     return retorno;
@@ -59,6 +64,7 @@ int getSalary(float *salary, float salarioMinimo){
         scanf ("%f", salary);
         while(*salary<salarioMinimo){
             printf ("El salario no puede ser menor a $%.2f. Reingrese salario: ", salarioMinimo);
+            fflush(stdin);
             scanf ("%f", salary);
         }
         retorno=0;
@@ -73,6 +79,7 @@ int getSector(int* sector, int minSector, int maxSector){
         scanf ("%d", sector);
         while(*sector<minSector||*sector>maxSector){
             printf ("Error. Ingrese un sector valido: ");
+            fflush(stdin);
             scanf ("%d", sector);
         }
         retorno=0;

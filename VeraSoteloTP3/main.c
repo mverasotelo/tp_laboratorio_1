@@ -58,10 +58,14 @@ int main()
                 }
                 break;
             case 3:  // Alta de empleado
-                if(controller_addEmployee(listaEmpleados, &nextId)){
-                    printf("Alta de empleado exitosa\n\n");
+                if(ll_len(listaEmpleados) > 0){
+                    if(controller_addEmployee(listaEmpleados, &nextId)){
+                        printf("Alta de empleado exitosa\n\n");
+                    }else{
+                        printf("Ha ocurrido un error al dar de alta el empleado\n\n");
+                    }
                 }else{
-                    printf("Ha ocurrido un error al dar de alta el empleado\n\n");
+                    printf("Primero debe cargar la lista desde un archivo\n\n");
                 }
                 break;
             case 4: // Modificar datos de empleado
@@ -133,7 +137,7 @@ int main()
                 }
                 break;
         }
-    }while(salir!='s');
+    }while(salir != 's');
 
     return 0;
 }

@@ -87,3 +87,11 @@
 	<string.h>
 	"VeraSotelo.h"
 
+1623935797 source:c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"VeraSotelo.h"
+

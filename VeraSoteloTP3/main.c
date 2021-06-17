@@ -27,6 +27,7 @@ int main()
     int criterio;
     int orden;
     int nextId = 1;
+    int flagFile = 1;
     Employee* aux=NULL;
 
     //Creo la linked list
@@ -34,7 +35,7 @@ int main()
 
     //Si es NULL salgo del programa
     if(listaEmpleados == NULL){
-        printf("Error al crear la nomina de empleados\n");
+        printf("ERROR: No se ha podido crear la nomina de empleados\n");
         exit(EXIT_FAILURE);
     }
 
@@ -42,19 +43,29 @@ int main()
         switch(menuOpciones())
         {
             case 1:  // Cargar los datos de los empleados desde el archivo data.csv (modo texto)
-                if(controller_loadFromText("data.csv",listaEmpleados)){
-                    printf("Carga de empleados exitosa\n\n");
-                    controller_getId(listaEmpleados, &nextId);
+                if(flagFile){
+                    if(controller_loadFromText("data.csv",listaEmpleados)){
+                        printf("Carga de empleados exitosa\n\n");
+                        controller_getId(listaEmpleados, &nextId);
+                        flagFile=0;
+                    }else{
+                        printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
+                    }
                 }else{
-                    printf("Ha ocurrido un error al cargar los empleados\n\n");
+                        printf("ERROR: Ya se habia cargado un archivo previamente\n\n");
                 }
                 break;
             case 2:  // Cargar los datos de los empleados desde el archivo data.bin (modo binario).
-                if(controller_loadFromBinary("data.bin", listaEmpleados)){
-                    printf("Carga de empleados exitosa\n\n");
-                    controller_getId(listaEmpleados, &nextId);
+                if(flagFile){
+                    if(controller_loadFromBinary("data.bin", listaEmpleados)){
+                        printf("Carga de empleados exitosa\n\n");
+                        controller_getId(listaEmpleados, &nextId);
+                        flagFile=0;
+                    }else{
+                        printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
+                    }
                 }else{
-                    printf("Ha ocurrido un error al cargar los empleados\n\n");
+                        printf("ERROR: Ya se habia cargado un archivo previamente\n\n");
                 }
                 break;
             case 3:  // Alta de empleado
@@ -62,10 +73,10 @@ int main()
                     if(controller_addEmployee(listaEmpleados, &nextId)){
                         printf("Alta de empleado exitosa\n\n");
                     }else{
-                        printf("Ha ocurrido un error al dar de alta el empleado\n\n");
+                        printf("ERROR: No se ha podido dar de alta el empleado\n\n");
                     }
                 }else{
-                    printf("Primero debe cargar la lista desde un archivo\n\n");
+                    printf("ERROR: Primero debe cargar la lista desde un archivo\n\n");
                 }
                 break;
             case 4: // Modificar datos de empleado
@@ -73,10 +84,10 @@ int main()
                     if(controller_editEmployee(listaEmpleados)){
                         printf("Modificacion de empleado exitosa\n\n");
                     }else{
-                        printf("Ha ocurrido un error al modificar el empleado\n\n");
+                        printf("ERROR: No se ha podido modificar el empleado\n\n");
                     }
                 }else{
-                    printf("No hay empleados cargados\n\n");
+                    printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
             case 5: // Baja de empleado
@@ -84,10 +95,10 @@ int main()
                     if(controller_removeEmployee(listaEmpleados)){
                         printf("Baja de empleado exitosa\n\n");
                     }else{
-                        printf("Ha ocurrido un error al dar de baja el empleado\n\n");
+                        printf("ERROR: No se ha podido dar de baja el empleado\n\n");
                     }
                 }else{
-                    printf("No hay empleados cargados\n\n");
+                    printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
             case 6: // Listar empleados
@@ -102,24 +113,32 @@ int main()
                     if(controller_sortEmployee(listaEmpleados, criterio, orden)){
                         printf("Lista ordenada exitosamente\n\n");
                     }else{
-                        printf("No se ha podido ordenar la lista\n\n");
+                        printf("ERROR: No se ha podido ordenar la lista\n\n");
                     }
                 }else{
-                    printf("No hay empleados cargados\n\n");
+                    printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
             case 8: //Guardar los datos de los empleados en el archivo data.csv (modo texto).
-                if(controller_saveAsText("data.csv",listaEmpleados)){
-                    printf("La lista se ha guardado exitosamente\n\n");
+                if(flagFile == 0){
+                    if(controller_saveAsText("data.csv",listaEmpleados)){
+                        printf("La lista se ha guardado exitosamente\n\n");
+                    }else{
+                        printf("ERROR: Ha ocurrido un problema al guardar los empleados\n\n");
+                    }
                 }else{
-                    printf("Ha ocurrido un error al guardar los empleados\n\n");
+                        printf("ERROR: Primero debe cargar los datos desde algun archivo\n\n");
                 }
                 break;
             case 9: // Guardar los datos de los empleados en el archivo data.bin (modo binario).
-                if(controller_saveAsBinary("data.bin",listaEmpleados)){
-                    printf("La lista se ha guardado exitosamente\n\n");
+                if(flagFile == 0){
+                    if(controller_saveAsBinary("data.bin",listaEmpleados)){
+                        printf("La lista se ha guardado exitosamente\n\n");
+                    }else{
+                        printf("ERROR: Ha ocurrido un problema al guardar los empleados\n\n");
+                    }
                 }else{
-                    printf("Ha ocurrido un error al guardar los empleados\n\n");
+                        printf("ERROR: Primero debe cargar los datos desde algun archivo\n\n");
                 }
                 break;
             case 10: // Salir

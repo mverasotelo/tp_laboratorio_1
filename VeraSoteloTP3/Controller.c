@@ -15,7 +15,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
 
-    if(pArrayListEmployee != NULL){
+    if(path =! NULL && pArrayListEmployee != NULL){
         FILE* f=fopen(path, "r");
         if(f==NULL){
             printf("No se pudo abrir el archivo\n");
@@ -40,7 +40,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
 
-    if(pArrayListEmployee != NULL){
+    if(path =! NULL && pArrayListEmployee != NULL){
         FILE* f = fopen(path, "rb");
 
         if(f==NULL){
@@ -305,7 +305,10 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
     int cant;
     Employee * aux = NULL;
 
-    FILE* f=fopen(path, "w");
+    if(path != NULL){
+        FILE* f=fopen(path, "w");
+    }
+
     if(f==NULL){
         printf("No se pudo abrir el archivo\n");
     }else{
@@ -341,7 +344,10 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     int cant;
     Employee * aux = NULL;
 
-    FILE* f=fopen(path, "wb");
+    if(path != NULL){
+        FILE* f=fopen(path, "wb");
+    }
+
     if(f == NULL){
         printf("No se pudo abrir el archivo\n");
     }else{

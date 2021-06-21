@@ -97,3 +97,13 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee);
 
 #endif // controller_H_INCLUDED
 
+
+/** \brief Borra empleados de una lista y borra la lista
+ *
+ * \param pArrayListEmployee LinkedList* lista
+ * \return int - devuelve 1 si salio todo bien, 0 si hubo algun error
+ *
+ */
+int controller_deleteEmployees(LinkedList* pArrayListEmployee);
+
+

@@ -24,11 +24,11 @@
 int main()
 {
     char salir;
+    char sobreescribir;
     int criterio;
     int orden;
     int nextId = 1;
     int flagFile = 1;
-    Employee* aux=NULL;
 
     //Creo la linked list
     LinkedList* listaEmpleados = ll_newLinkedList();
@@ -47,14 +47,28 @@ int main()
                     if(controller_loadFromText("data.csv",listaEmpleados)){
                         printf("Carga de empleados exitosa\n\n");
                         controller_getId(listaEmpleados, &nextId);
-                        flagFile=0;
+                        flagFile = 0;
                     }else{
                         printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
                     }
                 }else{
-                        printf("ERROR: Ya se habia cargado un archivo previamente\n\n");
+                    printf("Ya existe un archivo cargado. Desea sobreescribir los datos (s/n) ?\n");
+                    fflush(stdin);
+                    sobreescribir = getchar();
+                    printf("\n");
+                    if(sobreescribir == 's'){
+                        controller_deleteEmployees(listaEmpleados);
+                        ll_clear(listaEmpleados);
+                        if(controller_loadFromText("data.csv",listaEmpleados)){
+                            printf("Carga de empleados exitosa\n\n");
+                            controller_getId(listaEmpleados, &nextId);
+                        }else{
+                            printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
+                        }
+                    }
                 }
                 break;
+
             case 2:  // Cargar los datos de los empleados desde el archivo data.bin (modo binario).
                 if(flagFile){
                     if(controller_loadFromBinary("data.bin", listaEmpleados)){
@@ -65,9 +79,23 @@ int main()
                         printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
                     }
                 }else{
-                        printf("ERROR: Ya se habia cargado un archivo previamente\n\n");
+                    printf("Ya existe un archivo cargado. Desea sobreescribir los datos (s/n) ?\n");
+                    fflush(stdin);
+                    sobreescribir = getchar();
+                    printf("\n");
+                    if(sobreescribir == 's'){
+                        controller_deleteEmployees(listaEmpleados);
+                        ll_clear(listaEmpleados);
+                        if(controller_loadFromBinary("data.bin", listaEmpleados)){
+                            printf("Carga de empleados exitosa\n\n");
+                            controller_getId(listaEmpleados, &nextId);
+                        }else{
+                            printf("ERROR: Ha ocurrido un error al cargar los empleados\n\n");
+                        }
+                    }
                 }
                 break;
+
             case 3:  // Alta de empleado
                 if(ll_len(listaEmpleados) > 0){
                     if(controller_addEmployee(listaEmpleados, &nextId)){
@@ -79,6 +107,7 @@ int main()
                     printf("ERROR: Primero debe cargar la lista desde un archivo\n\n");
                 }
                 break;
+
             case 4: // Modificar datos de empleado
                 if(ll_len(listaEmpleados) > 0){
                     if(controller_editEmployee(listaEmpleados)){
@@ -90,6 +119,7 @@ int main()
                     printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
+
             case 5: // Baja de empleado
                 if(ll_len(listaEmpleados) > 0){
                     if(controller_removeEmployee(listaEmpleados)){
@@ -101,11 +131,13 @@ int main()
                     printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
+
             case 6: // Listar empleados
                 if(!controller_ListEmployee(listaEmpleados)){
                     printf("No hay empleados para mostrar\n\n");
                 }
                 break;
+
             case 7: // Ordenar empleados
                 if(ll_len(listaEmpleados) > 0){
                     criterio = submenuCriterio();
@@ -119,6 +151,7 @@ int main()
                     printf("ERROR: No hay empleados cargados\n\n");
                 }
                 break;
+
             case 8: //Guardar los datos de los empleados en el archivo data.csv (modo texto).
                 if(flagFile == 0){
                     if(controller_saveAsText("data.csv",listaEmpleados)){
@@ -130,6 +163,7 @@ int main()
                         printf("ERROR: Primero debe cargar los datos desde algun archivo\n\n");
                 }
                 break;
+
             case 9: // Guardar los datos de los empleados en el archivo data.bin (modo binario).
                 if(flagFile == 0){
                     if(controller_saveAsBinary("data.bin",listaEmpleados)){
@@ -141,16 +175,14 @@ int main()
                         printf("ERROR: Primero debe cargar los datos desde algun archivo\n\n");
                 }
                 break;
+
             case 10: // Salir
                 printf("Esta seguro de que desea salir?\n");
                 fflush(stdin);
                 salir = getchar();
                 printf("\n");
                 if(salir == 's'){
-                    for(int i=0; i<ll_len(listaEmpleados);i++){ //libera el espacio en memoria de todos los empleados
-                        aux=ll_get(listaEmpleados,i);
-                        employee_delete(aux);
-                    }
+                    controller_deleteEmployees(listaEmpleados);
                     ll_deleteLinkedList(listaEmpleados); //elimina la linked list
                     printf("Programa finalizado\n\n");
                 }

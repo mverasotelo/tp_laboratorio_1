@@ -363,4 +363,17 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     return retorno;
 }
 
+int controller_deleteEmployees(LinkedList* pArrayListEmployee){
+    int retorno = 0;
+    Employee* aux = NULL;
+
+    if(pArrayListEmployee != NULL){
+        for(int i=0; i<ll_len(pArrayListEmployee);i++){ //libera el espacio en memoria de todos los empleados
+            aux =ll_get(pArrayListEmployee,i);
+            employee_delete(aux);
+        }
+    }
+
+    return retorno;
+}
 

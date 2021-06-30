@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1625010333 source:c:\users\mer-v\downloads\code blocks\tp4-verasotelo,mercedes\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1560461330 c:\users\mer-v\downloads\code blocks\tp4-verasotelo,mercedes\linkedlist.h
+
+1625011516 source:c:\users\mer-v\downloads\code blocks\tp4-verasotelo,mercedes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"afiliado.h"
+
+1625011308 c:\users\mer-v\downloads\code blocks\tp4-verasotelo,mercedes\afiliado.h
+	"LinkedList.h"
+
+1625011444 source:c:\users\mer-v\downloads\code blocks\tp4-verasotelo,mercedes\afiliado.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"afiliado.h"
+
+1625011444 source:c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp4\afiliado.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"afiliado.h"
+
+1625011308 c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp4\afiliado.h
+	"LinkedList.h"
+
+1560461330 c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp4\linkedlist.h
+
+1625010333 source:c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp4\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1625011516 source:c:\users\mer-v\eclipse-workspace\verasotelo\verasotelotp4\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"afiliado.h"
+

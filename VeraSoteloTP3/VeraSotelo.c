@@ -3,7 +3,8 @@
 #include <string.h>
 #include "VeraSotelo.h"
 
-int menuOpciones(){
+int menuOpciones()
+{
     int opcion;
     printf("\n                             NOMINA DE EMPLEADOS\n");
     printf("  __________________________________________________________________________\n\n");
@@ -21,7 +22,8 @@ int menuOpciones(){
     return opcion;
 }
 
-int submenuCriterio(){
+int submenuCriterio()
+{
     int opcion;
     printf("1. Ordenar por ID.\n");
     printf("2. Ordenar por nombre.\n");
@@ -30,7 +32,8 @@ int submenuCriterio(){
     return opcion;
 }
 
-int submenuOrden(){
+int submenuOrden()
+{
     int opcion;
     printf("1. Descendiente\n");
     printf("2. Ascendiente.\n\n");
@@ -38,7 +41,8 @@ int submenuOrden(){
     return opcion;
 }
 
-int submenuModificacion(){
+int submenuModificacion()
+{
     int opcion;
     printf("1. Nombre\n");
     printf("2. Horas trabajadas\n");
@@ -47,11 +51,13 @@ int submenuModificacion(){
     return opcion;
 }
 
-int getOption(int min, int max){
+int getOption(int min, int max)
+{
 	int opcion;
     printf("Ingrese opcion: ");
     scanf("%d", &opcion);
-    while(opcion<min||opcion>max){
+    while(opcion<min||opcion>max)
+    {
         printf("Opcion invalida. Ingrese nuevamente: ");
         fflush(stdin);
         scanf("%d", &opcion);
@@ -60,14 +66,17 @@ int getOption(int min, int max){
     return opcion;
 }
 
-int getNombre(char *nombre, int maxLen){
+int getNombre(char *nombre, int maxLen)
+{
     int retorno=0;
     char aux[maxLen+5];
-    if(nombre!=NULL && maxLen>0 && maxLen<maxLen+5){
+    if(nombre!=NULL && maxLen>0 && maxLen<maxLen+5)
+    {
         printf("Ingrese nombre: ");
         fflush(stdin);
         fgets(aux,maxLen+5,stdin);
-        while(strlen(aux)>maxLen){
+        while(strlen(aux)>maxLen)
+        {
             printf("El maximo numero de caracteres permitidos es %d. Reingrese nombre: ",maxLen);
             fflush(stdin);
             fgets(aux,maxLen+5,stdin);

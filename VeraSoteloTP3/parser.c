@@ -16,23 +16,32 @@ int parser_EmployeeFromText(FILE* pFile , LinkedList* pArrayListEmployee)
     int cant;
     Employee * aux = NULL;
 
-    if(pArrayListEmployee != NULL){
+    if(pArrayListEmployee != NULL)
+    {
         fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n", buffer[0], buffer[1], buffer[2], buffer[3]);
-        do{
+        do
+        {
             cant = fscanf(pFile,"%[^,],%[^,],%[^,],%[^\n]\n", buffer[0], buffer[1], buffer[2], buffer[3]);
-            if(cant == 4){
+            if(cant == 4)
+            {
                 aux=employee_newParametros(buffer[0], buffer[1], buffer[2], buffer[3]);
-                if(aux!=NULL){
+                if(aux!=NULL)
+                {
                     ll_add(pArrayListEmployee,aux);
                     aux=NULL;
-                }else{
+                }
+                else
+                {
                     printf("No se pudo cargar el empleado\n");
                 }
                 retorno=1;
-            }else{
+            }
+            else
+            {
                 printf("Ha ocurrido un error al leer los datos\n");
             }
-        }while(!feof(pFile));
+        }
+        while(!feof(pFile));
     }
     return retorno;
 }
@@ -50,12 +59,16 @@ int parser_EmployeeFromBinary(FILE* pFile , LinkedList* pArrayListEmployee)
     int cant;
     Employee * aux = NULL;
 
-    if(pArrayListEmployee != NULL){
-        while(!feof(pFile)){
+    if(pArrayListEmployee != NULL)
+    {
+        while(!feof(pFile))
+        {
             aux=employee_new();
-            if (aux != NULL){
+            if (aux != NULL)
+            {
                 cant = fread(aux, sizeof(Employee), 1, pFile);
-                if(cant==1){
+                if(cant==1)
+                {
                     ll_add(pArrayListEmployee,aux);
                     aux=NULL;
                     retorno = 1;

@@ -10,9 +10,32 @@ typedef struct{
 }eAfiliado;
 
 //PROTOTIPOS
+
+/** \brief Muestra el listado de afiliados de la LinkedList
+ *
+ * \param this LinkedList* lista de afiliados
+ * \return void
+ *
+ */
 void mostrarAfiliados(LinkedList * this);
+
+
+/** \brief Muestra un afiliado
+ *
+ * \param afiliado eAfiliado* afiliado a mostrar
+ * \return void
+ *
+ */
 void mostrarAfiliado(eAfiliado * afiliado);
+
+
+/** \brief Compara Id de 2 afiliados
+ *
+ * \param a void* Puntero a afiliado A
+ * \param b void* Puntero a afiliado B
+ * \return int Devuelve 1 si el afiliado A es menor al afiliado B.
+ *
+ */
 int compararId(void* a, void* b);
 
 #endif // AFILIADO_H_INCLUDED
-

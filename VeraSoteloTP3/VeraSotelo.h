@@ -49,4 +49,14 @@ int getOption(int min, int max);
  */
 int getNombre(char *nombre, int maxLen);
 
+
+/** \brief Pide el nombre de archivo al usuario y lo valida
+ *
+ * \param nombre char* path
+ * \param maxLen int maximo de caracteres permitidos
+ * \return int devuelve 1 si esta todo OK y 0 si algo salio mal
+ *
+ */
+int getPath(char *path, int maxLen);
+
 #endif // VERASOTELO_H_INCLUDED

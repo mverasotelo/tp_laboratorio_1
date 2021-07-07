@@ -15,7 +15,7 @@ int controller_loadFromText(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
 
-    if(pArrayListEmployee != NULL)
+    if(pArrayListEmployee != NULL && path != NULL)
     {
         FILE* f = fopen(path, "r");
         if(f == NULL)
@@ -45,7 +45,7 @@ int controller_loadFromBinary(char* path , LinkedList* pArrayListEmployee)
 {
     int retorno = 0;
 
-    if(pArrayListEmployee != NULL)
+    if(pArrayListEmployee != NULL && path != NULL)
     {
         FILE* f = fopen(path, "rb");
 
@@ -354,7 +354,7 @@ int controller_saveAsText(char* path , LinkedList* pArrayListEmployee)
     }
     else
     {
-        if(pArrayListEmployee != NULL)
+        if(pArrayListEmployee != NULL && path != NULL)
         {
             tam = ll_len(pArrayListEmployee);
             for(int i=0;i<tam;i++)
@@ -397,7 +397,8 @@ int controller_saveAsBinary(char* path , LinkedList* pArrayListEmployee)
     }
     else
     {
-        if(pArrayListEmployee != NULL){
+        if(pArrayListEmployee != NULL && path != NULL)
+        {
             tam = ll_len(pArrayListEmployee);
             for(int i=0;i<tam;i++){
                 aux=ll_get(pArrayListEmployee, i);

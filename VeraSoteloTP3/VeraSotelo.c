@@ -87,3 +87,26 @@ int getNombre(char *nombre, int maxLen)
     }
     return retorno;
 }
+
+int getPath(char* path, int maxLen)
+{
+    int retorno = 0;
+    char aux[maxLen + 5];
+    if(path!=NULL && maxLen > 0 && maxLen < maxLen + 5)
+    {
+        printf("Ingrese path: ");
+        fflush(stdin);
+        fgets(aux,maxLen+5,stdin);
+        while(strlen(aux) > maxLen)
+        {
+            printf("El maximo numero de caracteres permitidos es %d. Reingrese nombre: ",maxLen);
+            fflush(stdin);
+            fgets(aux,maxLen+5,stdin);
+        }
+        aux[strlen(aux)-1]='\0';
+        strcpy(path, aux);
+        retorno=1;
+    }
+    return retorno;
+}
+

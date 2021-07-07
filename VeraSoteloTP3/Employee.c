@@ -49,7 +49,7 @@ int employee_print(Employee * this){
     int retorno = 0;
 
     if(this != NULL){
-        printf(" %4d  %15s      %6d      %10d\n", this->id, this->nombre, this->horasTrabajadas, this->sueldo);
+        printf(" %4d  %16s      %6d      %10d\n", this->id, this->nombre, this->horasTrabajadas, this->sueldo);
         retorno = 1;
     }
     return retorno;

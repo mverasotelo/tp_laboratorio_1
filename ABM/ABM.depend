@@ -1,0 +1,82 @@
+# depslib dependency file v1.0
+1621004098 source:c:\users\mer-v\downloads\code blocks\abm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleado.h"
+	"informes.h"
+	"sector.h"
+	"comidas.h"
+	"almuerzo.h"
+	"inputs.h"
+	"dataWarehouse.h"
+
+1621118978 source:c:\users\mer-v\downloads\code blocks\abm\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleado.h"
+
+1620684340 c:\users\mer-v\downloads\code blocks\abm\empleado.h
+	"sector.h"
+	"fecha.h"
+
+1620759877 c:\users\mer-v\downloads\code blocks\abm\datawarehouse.h
+	"empleado.h"
+	"almuerzo.h"
+	"fecha.h"
+
+1620750101 source:c:\users\mer-v\downloads\code blocks\abm\informes.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"informes.h"
+
+1620683103 c:\users\mer-v\downloads\code blocks\abm\sector.h
+
+1621119002 source:c:\users\mer-v\downloads\code blocks\abm\sector.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"sector.h"
+
+1620691627 c:\users\mer-v\downloads\code blocks\abm\informes.h
+	"empleado.h"
+	"almuerzo.h"
+	"sector.h"
+
+1620683247 source:c:\users\mer-v\downloads\code blocks\abm\almuerzo.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"almuerzo.h"
+
+1620682351 source:c:\users\mer-v\downloads\code blocks\abm\comidas.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"comidas.h"
+
+1620081546 c:\users\mer-v\downloads\code blocks\abm\fecha.h
+
+1620684345 c:\users\mer-v\downloads\code blocks\abm\almuerzo.h
+	"fecha.h"
+	"empleado.h"
+	"comidas.h"
+
+1620088575 c:\users\mer-v\downloads\code blocks\abm\comidas.h
+
+1620747807 source:c:\users\mer-v\downloads\code blocks\abm\datawarehouse.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"dataWarehouse.h"
+
+1621004322 source:c:\users\mer-v\downloads\code blocks\abm\inputs.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"inputs.h"
+
+1621004035 c:\users\mer-v\downloads\code blocks\abm\inputs.h
+

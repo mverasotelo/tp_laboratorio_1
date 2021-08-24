@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1616204349 source:c:\users\mer-v\downloads\code blocks\ejerciciosparcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+

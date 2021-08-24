@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1623454133 source:c:\users\mer-v\downloads\code blocks\punteropuntero\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleado.h"
+
+1623449840 source:c:\users\mer-v\downloads\code blocks\punteropuntero\empleado.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"empleado.h"
+
+1623449868 c:\users\mer-v\downloads\code blocks\punteropuntero\empleado.h
+

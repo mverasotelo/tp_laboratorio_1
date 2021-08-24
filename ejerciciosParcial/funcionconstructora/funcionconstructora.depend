@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1622844695 source:c:\users\mer-v\downloads\code blocks\funcionconstructora\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1618872829 source:c:\users\mer-v\downloads\code blocks\holamundo\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1618274466 c:\users\mer-v\downloads\code blocks\holamundo\verasotelo.h
+
+1621290278 source:c:\users\mer-v\downloads\code blocks\holamundo\verasotelo.c
+	<stdio.h>
+	<stdlib.h>
+	"VeraSotelo.h"
+
